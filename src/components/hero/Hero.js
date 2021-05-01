@@ -46,7 +46,7 @@ export default function Hero() {
             }
         });
 
-        const heroImage = getImage(img.node.localFile.childImageSharp.gatsbyImageData);
+        const heroImage = getImage(img.node[0].localFile.childImageSharp.gatsbyImageData);
         console.log(img);
 
         return (
