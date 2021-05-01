@@ -50,7 +50,7 @@ export default function Hero() {
     
         const heroImage = getImage(data.allWpMediaItem.edges[0].node.localFile.childImageSharp.gatsbyImageData);
         
-        console.log(img);
+        console.log(imgs);
 
         return (
             <div key={i} className="hero-component__inner">
