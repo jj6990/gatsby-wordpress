@@ -41,8 +41,7 @@ export default function Hero() {
         });
 
         const heroImage = getImage(img[0]);
-        console.log(heroImage);
-
+        
         return (
             <div key={i} className="hero-component__inner">
                 <GatsbyImage image={heroImage} alt={element.node.heroHomePage.tituloBanner} />
