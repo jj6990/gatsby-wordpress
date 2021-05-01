@@ -46,7 +46,8 @@ export default function Hero() {
             }
         });
 
-        const heroImage = getImage(img[0].node.localFile.childImageSharp);
+        const heroImage = getImage(img[0].node.localFile.childImageSharp.gatsbyImageData);
+        console.log(img[0].node.localFile.childImageSharp.gatsbyImageData);
 
         return (
             <div key={i} className="hero-component__inner">
