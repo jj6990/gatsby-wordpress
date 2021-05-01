@@ -42,14 +42,14 @@ export default function Hero() {
     const sliders = elements.map((element, i) => {
         const img = imgs.filter(img => {
             console.log(`${element.node.heroHomePage.imagenBanner.title}.png`, img.node.localFile.childImageSharp.fluid.originalName);
-            if ({element.node.heroHomePage.imagenBanner.title === img.node.localFile.childImageSharp.fluid.originalName) {
+            if (element.node.heroHomePage.imagenBanner.title === img.node.localFile.childImageSharp.fluid.originalName) {
                 console.log(img);
                 return img;
             }
         });
 
     
-        const heroImage = getImage(imgs[0].node.localFile.childImageSharp.gatsbyImageData);
+        const heroImage = getImage(img[0].node.localFile.childImageSharp.gatsbyImageData);
         
         console.log(imgs);
 
