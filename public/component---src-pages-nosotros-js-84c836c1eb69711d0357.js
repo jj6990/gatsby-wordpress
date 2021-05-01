@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[6],{hgLX:function(n,e,t){"use strict";t.r(e),t.d(e,"default",(function(){return o}));var a=t("q1tI"),r=t.n(a);function o(){return r.a.createElement(r.a.Fragment,null,r.a.createElement("p",null,"This is the nosotros page"))}}}]);
-//# sourceMappingURL=component---src-pages-nosotros-js-84c836c1eb69711d0357.js.map
