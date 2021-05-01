@@ -42,6 +42,7 @@ export default function Hero() {
 
     const elements = data.allWpBanner.edges;
     const imgs = data.allWpMediaItem.edges;
+    
 
     console.log(elements);
     const sliders = elements.map((element, i) => {
