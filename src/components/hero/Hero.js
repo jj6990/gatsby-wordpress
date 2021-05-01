@@ -19,29 +19,35 @@ export default function Hero() {
                 }
             }
         }
-        allImageSharp {
-            nodes {
-              fluid {
-                originalName
+        allWpMediaItem {
+            edges {
+              node {
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                    fluid {
+                      originalName
+                    }
+                  }
+                }
               }
-              gatsbyImageData(formats: WEBP, placeholder: BLURRED)
             }
         }
     }
   `)
 
     const elements = data.allWpBanner.edges;
-    const imgs = data.allImageSharp.nodes;
+    const imgs = data.allWpMediaItem.edges;
 
     const sliders = elements.map((element, i) => {
         const img = imgs.filter(img => {
-            if (`${element.node.heroHomePage.imagenBanner.title}.png` === img.fluid.originalName) {
+            if (`${element.node.heroHomePage.imagenBanner.title}.png` === img.node.localFile.childImageSharp.fluid.originalName) {
                 return img;
             }
         });
 
-        const heroImage = getImage(img[0]);
-        
+        const heroImage = getImage(img[0].node.localFile.childImageSharp);
+
         return (
             <div key={i} className="hero-component__inner">
                 <GatsbyImage image={heroImage} alt={element.node.heroHomePage.tituloBanner} />
