@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import blackFont from '../assets/fonts/TTNorms-Black.woff';
-import blackItalicFont from '../assets/fonts/TTNorms-Blackitalic.woff';
+import blackItalicFont from '../assets/fonts/TTNorms-BlackItalic.woff';
 import boldFont from '../assets/fonts/TTNorms-Bold.woff';
 import extraBoldFont from '../assets/fonts/TTNorms-ExtraBold.woff';
 import extraLightFont from '../assets/fonts/TTNorms-ExtraLight.woff';
