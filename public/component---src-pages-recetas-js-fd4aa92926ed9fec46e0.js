@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[8],{"3vOG":function(e,n,t){"use strict";t.r(n),t.d(n,"default",(function(){return u}));var a=t("q1tI"),r=t.n(a);function u(){return r.a.createElement(r.a.Fragment,null,r.a.createElement("p",null,"This is the recestas page"))}}}]);
+//# sourceMappingURL=component---src-pages-recetas-js-fd4aa92926ed9fec46e0.js.map

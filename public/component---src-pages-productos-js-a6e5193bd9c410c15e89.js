@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{"9LAW":function(n,e,t){"use strict";t.r(e),t.d(e,"default",(function(){return u}));var a=t("q1tI"),r=t.n(a);function u(){return r.a.createElement(r.a.Fragment,null,r.a.createElement("p",null,"This is the products page"))}}}]);
+//# sourceMappingURL=component---src-pages-productos-js-a6e5193bd9c410c15e89.js.map
