@@ -30,19 +30,26 @@ const SliderHeroStyle = styled.div`
             width: 33%;
             height: auto;
             padding: 20px;
-            background-color: transparent;
+            background-color: var(--gray-light-color);
             display: flex;
             flex-flow: column;
             justify-content: center;
             text-align: left;
+            border-bottom: 5px solid var(--primary-color);
             transition-property: border, background-color;
             transition-duration: .5s;
             transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1)
         }
+
         .info-hero-container:hover {
             border-bottom: 5px solid var(--primary-color);
             background-color: var(--gray-light-color);
         } 
+
+        @media ${device.laptop} {
+            background-color: transparent;
+            border-bottom: none;
+        }
 
         h1 {
             font-size: 30px;
