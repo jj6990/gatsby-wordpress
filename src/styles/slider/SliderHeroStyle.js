@@ -38,7 +38,12 @@ const SliderHeroStyle = styled.div`
             border-bottom: 5px solid var(--primary-color);
             transition-property: border, background-color;
             transition-duration: .5s;
-            transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1)
+            transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+            
+            @media ${device.laptop} {
+                background-color: #f6f6f600;
+                border-bottom: none;
+            }
         }
 
         .info-hero-container:hover {
@@ -46,10 +51,7 @@ const SliderHeroStyle = styled.div`
             background-color: var(--gray-light-color);
         } 
 
-        @media ${device.laptop} {
-            background-color: transparent;
-            border-bottom: none;
-        }
+        
 
         h1 {
             font-size: 30px;
