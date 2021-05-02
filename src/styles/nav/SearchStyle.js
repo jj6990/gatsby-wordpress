@@ -20,7 +20,7 @@ const SearchStyle = styled.div`
         padding: 2rem;
         box-sizing: border-box;
         border: none;
-        background-color: var(--gray-light);
+        background-color: var(--gray-light-color);
     }
 
     svg {

@@ -17,6 +17,7 @@ const LinkListStyle = styled.ul`
   padding: 2rem 0;
   overflow-x: hidden;
   background: white;
+  z-index: 9;
 
 
   @media ${device.laptop} {

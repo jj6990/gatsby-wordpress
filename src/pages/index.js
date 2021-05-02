@@ -1,8 +1,11 @@
 import React from 'react';
-import Hero from '../components/hero/Hero'
+import SliderHero from '../components/hero/SliderHero'
+import FullWidthCont from '../styles/containers/FullWidthCont'
 
 export default function HomePage() {
   return (
-    <Hero />
+    <FullWidthCont>
+      <SliderHero />
+    </FullWidthCont>
   )
 }
