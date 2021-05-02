@@ -1,15 +1,15 @@
 import React, { createRef } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { TimelineLite, CSSPlugin, gsap } from "gsap/all";
+import { TimelineLite, gsap } from "gsap/all";
 
 import Button from '../globals/Button';
 
 import SliderHeroStyle from '../../styles/slider/SliderHeroStyle'
-import WrapperCont from '../../styles/containers/WrapperCont'
+import FullWidthCont from '../../styles/containers/FullWidthCont'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowAltCircleRight, aArrowAltCircleLeft, faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons'
+import { faArrowAltCircleRight, faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons'
 import { TweenLite } from "gsap";
 
 export default function SliderHero() {
@@ -54,7 +54,7 @@ export default function SliderHero() {
 
   imgs.map(img => {
     const imgName = img.node.localFile.childImageSharp.fluid.originalName;
-    elements.map((element, i) => {
+    elements.map((element) => {
       const name = element.node.heroHomePage.imagenBanner.localFile.name;
       const mediaExt = element.node.heroHomePage.imagenBanner.localFile.extension;
 
@@ -65,7 +65,7 @@ export default function SliderHero() {
 
   });
 
-  elements.map((element, i) => {
+  elements.map((element) => {
     return element;
   });
 
@@ -115,6 +115,7 @@ export default function SliderHero() {
           return (
             <div key={i} className="slider" ref={(ref) => { sliderRefs[i] = ref }}>
               <GatsbyImage image={heroImage} alt={tituloBanner} />
+              <FullWidthCont>
                 <div className="info-hero-container">
                   <h1>{tituloBanner}</h1>
                   <p>{descBanner}</p>
@@ -133,6 +134,7 @@ export default function SliderHero() {
                     </div>
                   </div>
                 </div>
+              </FullWidthCont>
             </div>
           )
         })

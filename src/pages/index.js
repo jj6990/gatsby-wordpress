@@ -4,8 +4,7 @@ import FullWidthCont from '../styles/containers/FullWidthCont'
 
 export default function HomePage() {
   return (
-    <FullWidthCont>
       <SliderHero />
-    </FullWidthCont>
+
   )
 }
