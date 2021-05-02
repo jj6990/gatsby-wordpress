@@ -6,6 +6,7 @@ const FullWidthCont = styled.section`
         margin: 1rem auto;
         width: 100%; 
         box-sizing: border-box;
+        position: relative;
 `
 
 export default FullWidthCont;
