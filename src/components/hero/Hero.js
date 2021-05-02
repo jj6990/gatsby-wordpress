@@ -2,9 +2,10 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { TimelineLite, CSSPlugin } from "gsap/all";
+import { render } from "react-dom";
 
 export default function Hero() {
-    const data = useStaticQuery(graphql`
+	const data = useStaticQuery(graphql`
     query MyQuery {
         allWpBanner {
             edges {
@@ -40,35 +41,40 @@ export default function Hero() {
     }
   `)
 
-    const elements = data.allWpBanner.edges;
-    const imgs = data.allWpMediaItem.edges;
+	const elements = data.allWpBanner.edges;
+	const imgs = data.allWpMediaItem.edges;
 
-    console.log(elements);
-    const sliders = elements.map((element, i) => {
-        const img = imgs.filter(img => {
-            console.log(`${element.node.heroHomePage.imagenBanner.localFile.name}.${element.node.heroHomePage.imagenBanner.localFile.extension}`, img.node.localFile.childImageSharp.fluid.originalName);
-            if (`${element.node.heroHomePage.imagenBanner.localFile.name}.${element.node.heroHomePage.imagenBanner.localFile.extension}` === img.node.localFile.childImageSharp.fluid.originalName) {
-                console.log(img);
-                return img;
-            }
-        });
-        console.log(img);
+	imgs.map(img => {
+		const imgName = img.node.localFile.childImageSharp.fluid.originalName;
+		elements.map((element, i) => {
+			const name = element.node.heroHomePage.imagenBanner.localFile.name;
+			const mediaExt = element.node.heroHomePage.imagenBanner.localFile.extension;
 
-        if (img[i]) {
-            const heroImage = getImage(img[i].node.localFile.childImageSharp.gatsbyImageData);
+			if (`${name}.${mediaExt}` === imgName) {
+				return img;
+			}
+		});
 
-            return (
-                <div key={i} className="hero-component__inner">
-                    <GatsbyImage image={heroImage} alt={element.node.heroHomePage.tituloBanner} />
-                    {element.node.heroHomePage.tituloBanner}
-                </div>
-            )
-        }
-    });
+	});
 
-    return (
-        <div className="hero-component">
-            {sliders}
-        </div>
-    )
+	elements.map((element, i) => {
+		return element;
+	});
+
+	return (
+		<div>
+			{
+				elements.map((element, i) => {
+					const heroImage = getImage(imgs[i].node.localFile.childImageSharp.gatsbyImageData);
+					return (
+					<div key={i} className="hero-component__inner">
+						<GatsbyImage image={heroImage} alt={element.node.heroHomePage.tituloBanner} />
+						{element.node.heroHomePage.tituloBanner}
+					</div>
+					)
+				})
+			}
+		</div>
+	)
+
 }
