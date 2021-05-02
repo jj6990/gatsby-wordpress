@@ -7,42 +7,41 @@ export default function Hero() {
     const data = useStaticQuery(graphql`
     query MyQuery {
         allWpBanner {
-          edges {
-            node {
-              heroHomePage {
-                tituloBanner
-                textoBotonBanner
-                descripcionBanner
-                imagenBanner {
-                  localFile {
-                    name
-                    extension
-                  }
+            edges {
+                node {
+                    heroHomePage {
+                        tituloBanner
+                        textoBotonBanner
+                        descripcionBanner
+                        imagenBanner {
+                            localFile {
+                                    name
+                                    extension
+                            }
+                        }
+                    }
                 }
-              }
             }
-          }
         }
         allWpMediaItem {
-          edges {
-            node {
-              localFile {
-                childImageSharp {
-                  gatsbyImageData
-                  fluid {
-                    originalName
+            edges {
+              node {
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                    fluid {
+                      originalName
+                    }
                   }
                 }
               }
             }
-          }
         }
-      }
+    }
   `)
 
     const elements = data.allWpBanner.edges;
     const imgs = data.allWpMediaItem.edges;
-
 
     console.log(elements);
     const sliders = elements.map((element, i) => {
@@ -66,7 +65,6 @@ export default function Hero() {
             )
         }
     });
-
 
     return (
         <div className="hero-component">
