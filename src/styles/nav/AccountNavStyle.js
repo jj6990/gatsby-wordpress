@@ -87,6 +87,11 @@ const AccountNavStyle = styled.div`
   svg {
     margin-left: 10px; 
   } 
+
+  .svg-inline--fa.fa-w-16 {
+    width: 20px;
+    height: 20px; 
+  }
 `;
 
 export default AccountNavStyle;
