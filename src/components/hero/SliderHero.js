@@ -14,67 +14,34 @@ import { TweenLite } from "gsap";
 
 export default function SliderHero() {
   const data = useStaticQuery(graphql`
-    query MyQuery {
-        allWpBanner {
-            edges {
-                node {
-                    heroHomePage {
-                        tituloBanner
-                        textoBotonBanner
-                        descripcionBanner
-                        imagenBanner {
-                            localFile {
-                                    name
-                                    extension
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        allWpMediaItem {
-            edges {
-              node {
-                localFile {
-                  childImageSharp {
-                    gatsbyImageData
-                    fluid {
-                      originalName
-                    }
-                  }
+  query getBannerData {
+    allWpBanner {
+      edges {
+        node {
+          heroHomePage {
+            tituloBanner
+            textoBotonBanner
+            descripcionBanner
+            imagenBanner {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
                 }
               }
             }
+          }
         }
+      }
     }
+  } 
   `)
 
   const elements = data.allWpBanner.edges;
-  const imgs = data.allWpMediaItem.edges;
-
-  imgs.map(img => {
-    const imgName = img.node.localFile.childImageSharp.fluid.originalName;
-    elements.map((element) => {
-      const name = element.node.heroHomePage.imagenBanner.localFile.name;
-      const mediaExt = element.node.heroHomePage.imagenBanner.localFile.extension;
-
-      if (`${name}.${mediaExt}` === imgName) {
-        return img;
-      }
-    });
-
-  });
-
-  elements.map((element) => {
-    return element;
-  });
-
   const sliderRefs = {}
   const sliderCont = createRef(null);
   const time = .5;
 
   gsap.registerPlugin(TweenLite);
-
 
   const handleNext = (e) => {
     e.preventDefault();
@@ -107,7 +74,7 @@ export default function SliderHero() {
     <SliderHeroStyle className="slider-container" ref={sliderCont}>
       {
         elements.map((element, i) => {
-          const heroImage = getImage(imgs[i].node.localFile.childImageSharp.gatsbyImageData);
+          const heroImage = getImage(element.node.heroHomePage.imagenBanner.localFile.childImageSharp.gatsbyImageData);
           const tituloBanner = element.node.heroHomePage.tituloBanner;
           const descBanner = element.node.heroHomePage.descripcionBanner;
           const textoBtn = element.node.heroHomePage.textoBotonBanner;

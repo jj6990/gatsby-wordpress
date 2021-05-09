@@ -7,7 +7,7 @@ import CategorySliderStyle from '../../styles/categorySlider/CategorySliderStyle
 import FullWidthCont from '../../styles/containers/FullWidthCont'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowAltCircleRight, faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons'
+import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
 
 export default function CategorySlider() {
     const data = useStaticQuery(graphql`
@@ -30,7 +30,6 @@ export default function CategorySlider() {
     }
   `)
 
-    console.log(data);
     const categories = data.allWpProductCategory.edges;
 
     return (
@@ -49,7 +48,6 @@ export default function CategorySlider() {
                         </div>
                     </div>
                     {categories.map((category, i) => {
-                        console.log(category);
                         if (category.node.image) {
                             const categoryImage = getImage(category.node.image.localFile.childImageSharp.gatsbyImageData);
                             return (
