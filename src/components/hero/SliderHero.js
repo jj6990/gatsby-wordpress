@@ -1,7 +1,8 @@
-import React, { createRef } from "react"
+import React, { createRef, useEffect, useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { TimelineLite, gsap } from "gsap/all";
+import { gsap, TimelineLite } from "gsap";
+import { Draggable } from "gsap/Draggable";
 
 import Button from '../globals/Button';
 
@@ -10,11 +11,10 @@ import FullWidthCont from '../../styles/containers/FullWidthCont'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowAltCircleRight, faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons'
-import { TweenLite } from "gsap";
 
 export default function SliderHero() {
   const data = useStaticQuery(graphql`
-  query getBannerData {
+  query MyQuery {
     allWpBanner {
       edges {
         node {
@@ -36,12 +36,12 @@ export default function SliderHero() {
   } 
   `)
 
+  gsap.registerPlugin(TimelineLite);
+
   const elements = data.allWpBanner.edges;
-  const sliderRefs = {}
+  const sliderRefs = [];
   const sliderCont = createRef(null);
   const time = .5;
-
-  gsap.registerPlugin(TweenLite);
 
   const handleNext = (e) => {
     e.preventDefault();
@@ -49,6 +49,7 @@ export default function SliderHero() {
 
     if (e.target.dataset.nextSlide == elements.length) {
       tl.to(sliderCont.current, time, { x: 0 });
+
     }
     else {
       tl.to(sliderCont.current, time, { x: -window.innerWidth * e.target.dataset.nextSlide });
@@ -63,49 +64,53 @@ export default function SliderHero() {
 
     if (e.target.dataset.prevSlide == "-1") {
       tl.to(sliderCont.current, time, { x: -window.innerWidth * (elements.length - 1) });
+
     } else {
       tl.to(sliderCont.current, time, { x: -window.innerWidth * e.target.dataset.prevSlide });
+
     }
 
     tl.play();
   }
 
+
   return (
-    <SliderHeroStyle className="slider-container" ref={sliderCont}>
-      {
-        elements.map((element, i) => {
-          const heroImage = getImage(element.node.heroHomePage.imagenBanner.localFile.childImageSharp.gatsbyImageData);
-          const tituloBanner = element.node.heroHomePage.tituloBanner;
-          const descBanner = element.node.heroHomePage.descripcionBanner;
-          const textoBtn = element.node.heroHomePage.textoBotonBanner;
+    <SliderHeroStyle className="slider-container" >
+      <div className="slider-container__inner" ref={sliderCont}>
+        {
+          elements.map((element, i) => {
+            const heroImage = getImage(element.node.heroHomePage.imagenBanner.localFile.childImageSharp.gatsbyImageData);
+            const tituloBanner = element.node.heroHomePage.tituloBanner;
+            const descBanner = element.node.heroHomePage.descripcionBanner;
+            const textoBtn = element.node.heroHomePage.textoBotonBanner;
 
-          return (
-            <div key={i} className="slider" ref={(ref) => { sliderRefs[i] = ref }}>
-              <GatsbyImage image={heroImage} alt={tituloBanner} />
-              <FullWidthCont>
-                <div className="info-hero-container">
-                  <h1>{tituloBanner}</h1>
-                  <p>{descBanner}</p>
-                  <div className="slider-btns">
-                    <Button text={textoBtn} btnClass="primary" />
-
-                    <div className="slider-controls">
-                      <button className="slider-prev-btn" data-prev-slide={i - 1} onClick={handlePrev}>
-                        <FontAwesomeIcon icon={faArrowAltCircleLeft} />
+            return (
+              <div key={i} className="slider" ref={(ref) => { sliderRefs[i] = ref }} data-current={i + 1 === 1 ? true : false} data-count={i}>
+                <GatsbyImage image={heroImage} alt={tituloBanner} />
+                <FullWidthCont>
+                  <div className="info-hero-container">
+                    <h1>{tituloBanner}</h1>
+                    <p>{descBanner}</p>
+                    <div className="slider-btns">
+                      <Button text={textoBtn} btnClass="primary" />
+                      <div className="slider-controls">
+                        <button className="slider-prev-btn" data-prev-slide={i - 1} onClick={handlePrev}>
+                          <FontAwesomeIcon icon={faArrowAltCircleLeft} />
                         Anterior
                       </button>
-                      <button className="slider-next-btn" data-next-slide={i + 1} onClick={handleNext}>
-                        Siguiente
+                        <button className="slider-next-btn" data-next-slide={i + 1} onClick={handleNext}>
+                          Siguiente
                         <FontAwesomeIcon icon={faArrowAltCircleRight} />
-                      </button>
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </FullWidthCont>
-            </div>
-          )
-        })
-      }
+                </FullWidthCont>
+              </div>
+            )
+          })
+        }
+      </div>
     </SliderHeroStyle>
   )
 

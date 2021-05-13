@@ -11,29 +11,14 @@ const CategorySliderStyle = styled.section`
     h2 {
         font-size: 32px;
         text-align: center;
-    }
-
-    .category-cards-container {
-        display: flex;
-        flex-flow: row;
-        justify-content: flex-start;
-        overflow-x: auto;
+        text-transform: uppercase;
     }
 
     .utility-card {
         background-color: var(--primary-color);
         color: white;
         padding: 15px;
-    }
-
-    .card-container {
-        display: flex;
-        flex-flow: column;
-        justify-content: space-between;
-        margin: 15px;
-        min-width: 185px;
-        width: 100%;
-        position: relative;
+        height: auto;
     }
 
     .arrow-container {
@@ -76,25 +61,17 @@ const CategorySliderStyle = styled.section`
 
     }
 
-    /* width */
-    .category-cards-container::-webkit-scrollbar {
-    height: 5px;
-    
+    .swiper-wrapper {
+        padding-bottom: 20px;
     }
 
-    /* Track */
-    .category-cards-container::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    .swiper-scrollbar {
+        background: #f1f1f1;
+        height: 5px;
     }
 
-    /* Handle */
-    .category-cards-container::-webkit-scrollbar-thumb {
-    background:var(--primary-color);
-    }
-
-    /* Handle on hover */
-    .category-cards-container::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    .swiper-scrollbar-drag {
+        background:var(--primary-color);
     }
 `;
 

@@ -2,10 +2,12 @@ import styled from 'styled-components';
 import device from '../Device';
 
 const SliderHeroStyle = styled.div` 
-        display: flex;
-        flex-flow: row;
-        width: calc(4 * 100%);
-        position: relative;
+        .slider-container__inner {
+            display: flex;
+            flex-flow: row;
+            width: calc(4 * 100%);
+            position: relative;
+        }
 
         .slider {
             width:100%;
@@ -30,7 +32,7 @@ const SliderHeroStyle = styled.div`
             width: 33%;
             height: auto;
             padding: 20px;
-            background-color: var(--gray-light-color);
+            background-color: transparent;
             display: flex;
             flex-flow: column;
             justify-content: center;

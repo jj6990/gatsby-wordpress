@@ -22,6 +22,7 @@ const GlobalStyles = createGlobalStyle`
     a {
         list-style: none;
         text-decoration: none;
+        color: var(--black-color);
     }
 
     .container {
