@@ -18,6 +18,19 @@ const CategorySliderStyle = styled.section`
     color: white;
     padding: 15px;
     height: auto;
+    box-shadow: 4px 4px 4px #00000073;
+    transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  }
+
+  .utility-card:hover {
+    box-shadow: 7px 7px 7px #00000073;
+    background: rgb(5, 78, 129);
+    background: linear-gradient(
+      132deg,
+      rgba(5, 78, 129, 1) 19%,
+      rgba(45, 130, 190, 1) 73%,
+      rgba(8, 126, 208, 1) 91%
+    );
   }
 
   .arrow-container {
@@ -36,7 +49,7 @@ const CategorySliderStyle = styled.section`
     border-radius: 4px;
     text-align: center;
     padding: 16px;
-    font-size: 18px;
+    font-size: 16px;
     word-wrap: break-word;
   }
 
@@ -44,7 +57,7 @@ const CategorySliderStyle = styled.section`
     display: flex;
     justify-content: center;
     cursor: pointer;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
   }
 
   .svg-inline--fa.fa-w-16 {
@@ -58,6 +71,7 @@ const CategorySliderStyle = styled.section`
     z-index: -1;
     padding: 15px;
     width: 88%;
+    height: 100%;
   }
 
   .swiper-wrapper {
@@ -69,7 +83,11 @@ const CategorySliderStyle = styled.section`
     display: flex;
     flex-flow: column;
     justify-content: flex-end;
-    min-height: 225px;
+    min-height: 185px;
+
+    @media ${device.tablet} {
+      min-height: 225px;
+    }
   }
 
   .swiper-scrollbar {
