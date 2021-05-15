@@ -22,9 +22,11 @@ const InfoSectionStyle = styled.section`
 
   .info-section-content {
     width: 100%;
+    margin-bottom: 30px;
 
     @media ${device.laptop} {
       width: 50%;
+      margin-bottom: 0;
       margin-right: 30px;
     }
   }
@@ -58,8 +60,13 @@ const InfoSectionStyle = styled.section`
 
   .gallery-img-wrapper {
     height: 100%;
+    max-height: 150px;
     box-shadow: 4px 4px 4px #00000073;
     transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+
+    @media ${device.laptop} {
+      max-height: 100%;
+    }
   }
 
   .gallery-img-wrapper:hover {

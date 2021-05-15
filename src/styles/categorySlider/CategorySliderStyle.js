@@ -70,8 +70,9 @@ const CategorySliderStyle = styled.section`
     position: absolute;
     z-index: -1;
     padding: 15px;
-    width: fit-content;
+    width: 100%;
     height: 100%;
+    box-sizing: border-box;
   }
 
   .swiper-wrapper {
