@@ -57,7 +57,6 @@ export default function CategorySlider() {
             return 2;
         }
     }
-    console.log(slices());
 
     const categoryCards = categories.map((category, i) => {
         if (category.node.image) {

@@ -70,7 +70,7 @@ const CategorySliderStyle = styled.section`
     position: absolute;
     z-index: -1;
     padding: 15px;
-    width: 88%;
+    width: fit-content;
     height: 100%;
   }
 
