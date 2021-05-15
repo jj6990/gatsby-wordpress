@@ -65,7 +65,7 @@ const InfoSectionStyle = styled.section`
     transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
 
     @media ${device.laptop} {
-      max-height: 100%;
+      max-height: 300px;
     }
   }
 
