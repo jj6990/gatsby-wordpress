@@ -115,7 +115,7 @@ export default function InfoSection() {
                 }
               );
 
-              const [category] = { ...productCategory };
+              const [category] = [ ...productCategory ];
 
               return (
                 <SwiperSlide key={i}>
