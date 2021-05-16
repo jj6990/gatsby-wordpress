@@ -98,8 +98,6 @@ export default function InfoSection() {
                   .gatsbyImageData
               );
 
-              console.log(element);
-
               const productName = element.node.name;
               const imgAlt = element.node.name;
               const productLink = element.node.link;
@@ -115,7 +113,7 @@ export default function InfoSection() {
                 }
               );
 
-              const [category] = [ ...productCategory ];
+              const [category] = [...productCategory];
 
               return (
                 <SwiperSlide key={i}>
