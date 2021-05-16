@@ -41,7 +41,6 @@ export default function InfoSection() {
       }
     }
   `);
-  console.log(data);
 
   const featuredImage = getImage(
     data.wpInfosection.infosection.imagen.localFile.childImageSharp

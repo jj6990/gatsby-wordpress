@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
 
@@ -8,6 +8,7 @@ const GlobalStyles = createGlobalStyle`
     --black-color: #181918;
     --white-color: #EFEFEF;
     --gray-light-color: #F6F6F6;
+    --gray-medium-color: #9D9D9C;
     }
 
     html, 
@@ -15,7 +16,6 @@ const GlobalStyles = createGlobalStyle`
         font-size: 10px;
         overflow-x: hidden;
         width: 100%;
-        box-sizing: border-box;
     }
 
     ul, 
@@ -23,6 +23,15 @@ const GlobalStyles = createGlobalStyle`
         list-style: none;
         text-decoration: none;
         color: var(--black-color);
+    }
+
+    h3 {
+    font-size: 32px;
+    text-transform: uppercase;
+    }
+
+    p {
+    font-size: 18px;
     }
 
     .container {

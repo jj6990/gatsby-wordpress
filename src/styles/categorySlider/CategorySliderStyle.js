@@ -17,7 +17,7 @@ const CategorySliderStyle = styled.section`
     background-color: var(--primary-color);
     color: white;
     padding: 15px;
-    height: auto;
+    height: 100%;
     box-shadow: 4px 4px 4px #00000073;
     transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
   }
